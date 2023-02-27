@@ -18,27 +18,10 @@
 
 body {
   height: 100vh;
-  overflow: hidden;
   backdrop-filter: blur(15px);
   background-color: var(--color-fondo);
   transition: brackground-color 1s;
   -webkit-transition: background-color 1s;
-}
-
-body::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-  display: none;
-}
-
-body::-webkit-scrollbar-thumb {
-  background: gray;
-  border-radius: 4px;
-}
-
-body::-webkit-scrollbar-track {
-  background: gray;
-  border-radius: 4px;
 }
 
 .nav {
