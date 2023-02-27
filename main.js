@@ -7,7 +7,7 @@ if (
   document.readyState === "complete" ||
   document.readyState === "interactive"
 ) {
-  setTimeout(Init, 1);
+  setTimeout(Init, 5);
 } else {
   document.addEventListener("DOMContentLoaded", Init);
 }
@@ -70,6 +70,7 @@ function Start() {
   textoScore = document.querySelector(".score");
   dino = document.querySelector(".dino");
   document.addEventListener("keydown", HandleKeyDown);
+  document.addEventListener("touchstart", handleStart, false);
 }
 
 function Update() {
@@ -90,6 +91,11 @@ function HandleKeyDown(ev) {
   if (ev.keyCode == 32) {
     Saltar();
   }
+}
+
+function handleStart(ev) {
+  Saltar();
+  console.log(ev);
 }
 
 function Saltar() {
@@ -219,6 +225,12 @@ function GanarPuntos() {
 function GameOver() {
   Estrellarse();
   gameOver.style.display = "flex";
+  let button = document.getElementById("button");
+  button.addEventListener("click", restart);
+}
+
+function restart() {
+  document.location.reload();
 }
 
 function DetectarColision() {
