@@ -170,14 +170,14 @@ input:checked + .slider:before {
     #8706c7,
     #ffe201
   ) */
-  transition: background 1s;
   -webkit-transition: all 1s;
-  transition: background-color 1s linear;
+  transition: background 1s linear;
   overflow: hidden;
 }
 
 .contenedor.noche {
   background: linear-gradient(#8706c7, #ffe201);
+  transition: background 1s linear;
 }
 
 .mediodia {
@@ -335,13 +335,14 @@ input:checked + .slider:before {
   color: var(--color-fuente);
 }
 
-@media (max-width: 615px) {
+@media (max-width: 640px), (max-height: 680px) {
   body {
     overflow: visible;
   }
 
   .nav {
     height: 13%;
+    width: 100%;
     margin: 0;
   }
 
@@ -356,5 +357,6 @@ input:checked + .slider:before {
 
   .link {
     height: 80px;
+    width: 100%;
   }
 }
