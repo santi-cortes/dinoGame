@@ -176,8 +176,7 @@ function CrearNube() {
 
   nubes.push(nube);
   tiempoHastaNube =
-    tiempoNubeMin +
-    5 +
+    tiempoNubeMin + 3 +
     (Math.random() * (tiempoNubeMax - tiempoNubeMin)) / gameVel;
 }
 
@@ -225,12 +224,67 @@ function GanarPuntos() {
 function GameOver() {
   Estrellarse();
   gameOver.style.display = "flex";
+  document.getElementById("box").textContent = `Tu anterior puntuacion fue de ${score} :)`
   let button = document.getElementById("button");
   button.addEventListener("click", restart);
+  console.log(obstaculos);
+  console.log(dino);
 }
 
 function restart() {
-  document.location.reload();
+
+  console.log(score);  
+  score = 0;
+  textoScore.innerText = score;
+
+  for (var i = nubes.length - 1; i >= 0; i--) {
+      nubes[i].parentNode.removeChild(nubes[i]);
+      nubes.splice(i, 1);
+  }
+  for (var i = obstaculos.length - 1; i >= 0; i--) {
+    obstaculos[i].parentNode.removeChild(obstaculos[i]);
+    obstaculos.splice(i, 1);
+  }
+   /* obstaculos.splice(1, 1);
+  obstaculos.splice(0, 1); */
+  gameOver.style.display = "none";
+  dino.classList.add("dino-corriendo");
+  dino.classList.remove("dino-estrellado");
+  parado = false; 
+  /* document.location.reload(); */
+  time = new Date();
+  deltaTime = 0;
+  Init();
+  sueloY = 22;
+  velY = 0;
+  impulso = 900;
+  gravedad = 2500;
+
+  dinoPosX = 42;
+  dinoPosY = sueloY;
+
+  sueloX = 0;
+  velEscenario = 1500 / 4;
+  gameVel = 0.8;
+  score = 0;
+
+  parado = false;
+  saltando = false;
+
+  tiempoHastaObstaculo = 2;
+  tiempoObstaculoMin = 0.7;
+  tiempoObstaculoMax = 1.8;
+  obstaculoPosY = 16;
+  obstaculos = [];
+
+  tiempoHastaNube = 0.5;
+  tiempoNubeMin = 0.7;
+  tiempoNubeMax = 2.7;
+  maxNubeY = 270;
+  minNubeY = 100;
+  nubes = [];
+  velNube = 0.5;
+
 }
 
 function DetectarColision() {

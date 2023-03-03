@@ -26,16 +26,15 @@ body {
 
 .nav {
   background-color: rgba(255, 255, 255, 0);
-  height: 150px;
+  height: 120px;
   width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 20px;
 }
 
 .title {
-  font-size: 80px;
+  font-size: 50px;
   border-radius: 10px;
   padding: 10px;
   overflow: hidden;
@@ -293,6 +292,7 @@ input:checked + .slider:before {
   justify-content: center;
   align-items: center;
   color: var(--color-fuente);
+  transition: color 1s ease;
   font-size: 30px;
   font-family: Verdana;
   font-weight: 700;
@@ -314,6 +314,25 @@ input:checked + .slider:before {
 
 .button svg {
   color: var(--color-fuente);
+  transition: color 1s ease;
+}
+
+.points {
+  display: flex;
+  justify-content: center;
+}
+
+.points .box {
+  padding: 5px 0;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 30px;
+  color: var(--color-fuente);
+  background: var(--color-gradient);
+  /* box-shadow: 4px 4px 10px var(--color-fuente); */
+  width: 50%;
 }
 
 .link {
